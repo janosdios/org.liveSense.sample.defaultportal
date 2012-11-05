@@ -1,0 +1,26 @@
+{
+    "portalName": "defaultportal",
+    "menuOrder": "4",
+
+    "menuName_hu": "Samples",
+    "menuName_en": "Samples",
+    "menuName_de": "Samples",
+    "menuName_fr": "Samples",
+    "menuName_es": "Samples",
+    
+    "pageTitle": "liveSense",
+
+    "title_hu": "Sample applications",
+    "title_en": "Sample applications",
+    "title_de": "Sample applications",
+    "title_fr": "Sample applications",
+    "title_es": "Sample applications",
+
+    "content_hu": "Under construction",
+    "content_en": "liveSense has many built-in sample applications to demonstrate the capabilities of this OSGi-based framework and how easy it is to use it.<br/><br/><b>Remark:</b> if you use any third-party web container/server (for example Apache Tomcat) instead of the built-in, we recommend to deploy livesense as ROOT web application (rename the ‘org.liveSense.launchpad-xxx.war’ file to ‘ROOT.war’).",
+    "content_de": "Under construction",
+    "content_fr": "Under construction",
+    "content_es": "Under construction",
+
+    "jcr:primaryType": "defaultportal:defaultpage"
+}

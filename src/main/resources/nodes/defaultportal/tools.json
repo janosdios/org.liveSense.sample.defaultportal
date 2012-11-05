@@ -1,0 +1,26 @@
+{
+    "portalName": "defaultportal",
+    "menuOrder": "3",
+
+    "menuName_hu": "Tools",
+    "menuName_en": "Tools",
+    "menuName_de": "Tools",
+    "menuName_fr": "Tools",
+    "menuName_es": "Tools",
+    
+    "pageTitle": "liveSense",
+
+    "title_hu": "Built-in tools",
+    "title_en": "Built-in tools",
+    "title_de": "Built-in tools",
+    "title_fr": "Built-in tools",
+    "title_es": "Built-in tools",
+
+    "content_hu": "Under construction",
+    "content_en": "liveSense contains more efficient built-in administrative applications to inspect and manage OSGi framework instances and the JCR repository using your favorite Web Browser.<br/><br/><b>Remark</b>: to log in to the console or to write into the repository use <b>admin/admin</b> as the default user/password.",
+    "content_de": "Under construction",
+    "content_fr": "Under construction",
+    "content_es": "Under construction",
+
+    "jcr:primaryType": "defaultportal:defaultpage"
+}

@@ -1,0 +1,26 @@
+{
+    "portalName": "defaultportal",
+    "menuOrder": "2",
+
+    "menuName_hu": "Samples",
+    "menuName_en": "Technology",
+    "menuName_de": "Samples",
+    "menuName_fr": "Samples",
+    "menuName_es": "Samples",
+    
+    "pageTitle": "liveSense",
+
+    "title_hu": "Technology",
+    "title_en": "Technology",
+    "title_de": "Technology",
+    "title_fr": "Technology",
+    "title_es": "Technology",
+
+    "content_hu": "",
+    "content_en": "liveSense is a web application framework that uses <a href='http://sling.apache.org'>Apache Sling</a> and <a href='http://jackrabbit.apache.org'>Apache Jackrabbit</a> to store and manage content. liveSense is compliant to Java Content Repository - <b>JSR-170</b> and <b>JSR-283</b> standards, which ensures the easy integration to other CMS systems. The whole CMS has XML import and export functionality.<br/><br/>liveSense is an <b>extended</b> version of <b>Apache Sling</b>, see the integrated technologies below.",
+    "content_de": "",
+    "content_fr": "",
+    "content_es": "",
+
+    "jcr:primaryType": "defaultportal:defaultpage"
+}

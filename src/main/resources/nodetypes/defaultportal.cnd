@@ -1,0 +1,62 @@
+<defaultportal = 'http://livesense.org/defaultportal/1.0'>
+<nt  = 'http://www.jcp.org/jcr/nt/1.0'>
+<sling = 'http://sling.apache.org/jcr/sling/1.0'>
+
+[defaultportal:defaultpage] > nt:unstructured
+	- 'portalName' (String) 
+	- 'menuOrder' (String)
+
+	- 'menuName_hu' (String)
+	- 'menuName_en' (String)
+	- 'menuName_de' (String)
+	- 'menuName_fr' (String)
+	- 'menuName_es' (String)
+
+	- 'pageTitle' (String)
+	
+	- 'title_hu' (String)
+	- 'title_en' (String)
+	- 'title_de' (String)
+	- 'title_fr' (String)
+	- 'title_es' (String)
+
+	- 'content_hu' (String)
+	- 'content_en' (String)
+	- 'content_de' (String)
+	- 'content_fr' (String)
+	- 'content_es' (String)
+
+[defaultportal:article] > nt:unstructured
+	- 'portalName' (String) 
+	- 'parentMenu' (String)
+	- 'displayOrder' (String)
+
+	- 'title_hu' (String)
+	- 'title_en' (String)
+	- 'title_de' (String)
+	- 'title_fr' (String)
+	- 'title_es' (String)
+
+	- 'content_hu' (String)
+	- 'content_en' (String)
+	- 'content_de' (String)
+	- 'content_fr' (String)
+	- 'content_es' (String)
+
+[defaultportal:footer] > nt:unstructured
+	- 'portalName' (String) 
+	- 'displayOrder' (String)
+
+	- 'title_hu' (String)
+	- 'title_en' (String)
+	- 'title_de' (String)
+	- 'title_fr' (String)
+	- 'title_es' (String)
+
+	- 'content_hu' (String)
+	- 'content_en' (String)
+	- 'content_de' (String)
+	- 'content_fr' (String)
+	- 'content_es' (String)
+	
+	
