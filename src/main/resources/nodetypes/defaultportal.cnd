@@ -12,6 +12,14 @@
 	- 'menuName_fr' (String)
 	- 'menuName_es' (String)
 
+	- 'menuLevel' (String)
+	- 'menuLevel2Parent' (String)
+	- 'jstorun' (String)
+	- 'menuLink' (String)
+	- 'islink' (Boolean)
+	- 'enabled' (Boolean)
+	- 'isdivider' (Boolean)
+
 	- 'pageTitle' (String)
 	
 	- 'title_hu' (String)

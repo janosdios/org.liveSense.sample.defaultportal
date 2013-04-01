@@ -1,0 +1,22 @@
+{
+    "portalName": "defaultportal",
+    "menuOrder": "2",
+
+    "menuName_hu": "Magyar",
+    "menuName_en": "Hungarian",
+    "menuName_de": "N/A",
+    "menuName_fr": "N/A",
+    "menuName_es": "N/A",
+
+	"menuLevel": "2",
+	"menuLevel2Parent": "language",
+	"menuLink": "",
+	"jstorun": "post_language('hu_HU')",
+	"islink": true,
+	"enabled": true,
+	"isdivider": false,
+    
+    "pageTitle": "liveSense",
+
+    "jcr:primaryType": "defaultportal:defaultpage"
+}

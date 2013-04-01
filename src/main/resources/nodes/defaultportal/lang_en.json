@@ -1,0 +1,22 @@
+{
+    "portalName": "defaultportal",
+    "menuOrder": "1",
+
+    "menuName_hu": "Angol",
+    "menuName_en": "English",
+    "menuName_de": "N/A",
+    "menuName_fr": "N/A",
+    "menuName_es": "N/A",
+
+	"menuLevel": "2",
+	"menuLevel2Parent": "language",
+	"menuLink": "",
+	"jstorun": "post_language('en_US')",
+	"islink": true,
+	"enabled": true,
+	"isdivider": false,
+    
+    "pageTitle": "liveSense",
+
+    "jcr:primaryType": "defaultportal:defaultpage"
+}

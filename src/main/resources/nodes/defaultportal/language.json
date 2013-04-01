@@ -1,0 +1,22 @@
+{
+    "portalName": "defaultportal",
+    "menuOrder": "2",
+
+    "menuName_hu": "Nyelv",
+    "menuName_en": "Language",
+    "menuName_de": "N/A",
+    "menuName_fr": "N/A",
+    "menuName_es": "N/A",
+
+	"menuLevel": "1",
+	"menuLevel2Parent": "",
+	"menuLink": "",
+	"jstorun": "switchlanguage()",
+	"islink": true,
+	"enabled": true,
+	"isdivider": false,
+    
+    "pageTitle": "liveSense",
+
+    "jcr:primaryType": "defaultportal:defaultpage"
+}

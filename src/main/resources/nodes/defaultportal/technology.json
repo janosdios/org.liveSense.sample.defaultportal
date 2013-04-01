@@ -1,26 +1,33 @@
 {
     "portalName": "defaultportal",
-    "menuOrder": "2",
+    "menuOrder": "3",
 
-    "menuName_hu": "Samples",
+    "menuName_hu": "Technológia",
     "menuName_en": "Technology",
-    "menuName_de": "Samples",
-    "menuName_fr": "Samples",
-    "menuName_es": "Samples",
-    
+    "menuName_de": "N/A",
+    "menuName_fr": "N/A",
+    "menuName_es": "N/A",
+
+	"menuLevel": "1",
+	"menuLevel2Parent": "",
+	"menuLink": "samples.html",
+	"jstorun": "",
+	"islink": true,
+	"enabled": true,
+	"isdivider": false,
     "pageTitle": "liveSense",
 
-    "title_hu": "Technology",
+    "title_hu": "Technológia",
     "title_en": "Technology",
-    "title_de": "Technology",
-    "title_fr": "Technology",
-    "title_es": "Technology",
+    "title_de": "N/A",
+    "title_fr": "N/A",
+    "title_es": "N/A",
 
-    "content_hu": "",
+    "content_hu": "A liveSense egy internetes alapú alkalmazás-keretrendszer, amely az <a href='http://sling.apache.org'>Apache Sling</a>-re épül és az <a href='http://jackrabbit.apache.org'>Apache Jackrabbit</a>-et használja a különböző tartalmak tárolására és kezelésére. A liveSense kompatibilis a <b>JSR-170</b> és <b>JSR-283</b> szabványokkal, ami biztosítja a könnyű integrálhatóságát egyéb CMS rendszerekbe. A teljes CMS-re rendelkezésre áll XML import-és export funkció.<br/><br/>A liveSense az <b>Apache Sling</b> kiterjesztett verziója, az integrált technológiákat lásd lentebb.",
     "content_en": "liveSense is a web application framework that uses <a href='http://sling.apache.org'>Apache Sling</a> and <a href='http://jackrabbit.apache.org'>Apache Jackrabbit</a> to store and manage content. liveSense is compliant to Java Content Repository - <b>JSR-170</b> and <b>JSR-283</b> standards, which ensures the easy integration to other CMS systems. The whole CMS has XML import and export functionality.<br/><br/>liveSense is an <b>extended</b> version of <b>Apache Sling</b>, see the integrated technologies below.",
-    "content_de": "",
-    "content_fr": "",
-    "content_es": "",
+    "content_de": "Under construction!",
+    "content_fr": "Under construction!",
+    "content_es": "Under construction!",
 
     "jcr:primaryType": "defaultportal:defaultpage"
 }

@@ -66,7 +66,8 @@ header {
 	width: 100%;
 	max-width: 940px;
 	margin: 0 auto;
-	padding: 60px 0;
+/*	padding: 60px 0;*/
+	padding: 60px 0 0;
 	border-bottom: 1px dashed #c2c2c2;
 }
 .headline {
@@ -87,7 +88,7 @@ header {
 }
 
 .poweredby_logo {
-	background: url(../images/misc/livesense_logo_v3_poweredby_2.png);
+	background: url(../img/misc/livesense_logo_v3_poweredby_2.png);
 	width: 129px;
 	height: 15px;
 	display: block;
@@ -97,6 +98,10 @@ header {
 
 .poweredby {
 	float: right;
+}
+
+.endrow {
+	border-bottom: 1px dashed #e8e8e8;
 }
 
 footer {
@@ -113,37 +118,37 @@ footer {
 	font-family: 'Droid-Sans';
  	font-style: normal;
   	font-weight: 400;
-	src: url(../fonts/DroidSans.ttf) format('truetype');
+	src: url(../font/DroidSans.ttf) format('truetype');
 }
 @font-face {
 	font-family: 'Droid-Sans';
  	font-style: normal;
   	font-weight: 700;
-	src: url(../fonts/DroidSans-Bold.ttf) format('truetype');
+	src: url(../font/DroidSans-Bold.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Droid-Serif';
   font-style: normal;
   font-weight: 400;
-  src: url(../fonts/DroidSerif.ttf) format('truetype');
+  src: url(../font/DroidSerif.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Droid-Serif';
   font-style: italic;
   font-weight: 400;
-  src: url(../fonts/DroidSerif-Italic.ttf) format('truetype');
+  src: url(../font/DroidSerif-Italic.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Droid-Serif';
   font-style: normal;
   font-weight: 700;
-  src: url(../fonts/DroidSerif-Bold.ttf) format('truetype');
+  src: url(../font/DroidSerif-Bold.ttf) format('truetype');
 }
 @font-face {
   font-family: 'Droid-Serif';
   font-style: italic;
   font-weight: 700;
-  src: url(../fonts/DroidSerif-BoldItalic.ttf) format('truetype');
+  src: url(../font/DroidSerif-BoldItalic.ttf) format('truetype');
 }
 
 h1 {
@@ -209,7 +214,7 @@ p a:hover {
 /*-----------------------------------------------------------------------------------*/
 
 .logo {
-	background: url(../images/misc/livesense_logo_v3_defaultportal.png);
+	background: url(../img/misc/livesense_logo_v3_defaultportal.png);
 	width: 167px;
 	height: 65px;
 	display: block;
@@ -268,7 +273,7 @@ li.subnav.current a:hover {
 }
 
 .item {
-	background: url(../images/countdown/bg.png) no-repeat;
+	background: url(../img/countdown/bg.png) no-repeat;
 	width: 100px;
 	height: 100px;
 	display: block;
@@ -320,7 +325,7 @@ li.subnav.current a:hover {
 
 /* Start Form Styles */
 form.emailform {
-	background: url(../images/misc/form_bg.png);
+	background: url(../img/misc/form_bg.png);
 	width: 581px;
 	height: 74px;
 	display: block;
@@ -341,7 +346,7 @@ input.emailsubscribe {
 }
 
 input.emailsubmit {
-	background: url(../images/misc/form_button.png);
+	background: url(../img/misc/form_button.png);
 	background-position: 0 0;
 	width: 49px;
 	height: 51px;
@@ -397,5 +402,66 @@ input.emailsubmit:hover {
 }
 */
 
+/* ---------------------------------------------------------------------- */
+/*	Media Queries
+/* ---------------------------------------------------------------------- */
+
+/* Standard 960 or larger (browsers) */
+@media only screen and (min-width: 960px) {
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+
+	header {
+		max-width: 480px;
+	}
+	
+	#main_wrapper {
+		max-width: 480px;
+	}
+	.one-third {
+		width: 100%; /* 286 / 940 */
+		margin-right: 6px;
+	}	
+
+	footer {
+		max-width: 480px;
+	}
+
+}
+
+/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+@media only screen and (max-width: 479px) {
+
+	header {
+		max-width: 320px;
+	}
+	
+	#main_wrapper {
+		max-width: 320px;
+	}
+	.one-third {
+		width: 100%; /* 286 / 940 */
+		margin-right: 6px;
+	}	
+
+	footer {
+		max-width: 320px;
+	}
+
+}
 
 

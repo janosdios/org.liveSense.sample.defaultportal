@@ -1,25 +1,35 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<%@page import="org.liveSense.service.languageselector.LanguageSelectorService"%>
+<%@page import="javax.security.auth.callback.LanguageCallback"%>
+<%@page import="org.liveSense.core.wrapper.RequestWrapper"%>
+<%@page import="java.util.Locale"%>
+<%@page import="org.liveSense.service.markdown.MarkdownWrapper"%>
+<%@page import="org.liveSense.core.wrapper.JcrNodeWrapper"%>
 <%@page import="javax.jcr.NodeIterator"%>
 <%@page import="javax.jcr.query.Query"%>
 <%@page import="javax.jcr.query.QueryManager"%>
 <%@page import="javax.jcr.Node"%>
-
-<%@page import="java.util.Locale"%>
-
-<%@page import="org.liveSense.service.languageselector.LanguageSelectorService" %>
-
-<%@page import="org.liveSense.core.wrapper.RequestWrapper" %>
+<%@page import="org.liveSense.service.markdown.MarkdownService"%>
 
 <%@page session="false"%>
-<%@page contentType="text/html; charset=UTF-8" %> 
-<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.0"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@page contentType="text/html; charset=UTF-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@taglib prefix="sling" uri="http://sling.apache.org/taglibs/sling/1.1"%>
 <%@taglib prefix="json" uri="http://www.atg.com/taglibs/json"%>
-<sling:defineObjects/>
+<sling:defineObjects />
 
+<%
+	// Get Node wrapper
+	LanguageSelectorService languageSelectorService = sling.getService(LanguageSelectorService.class);
+	Locale locale =  languageSelectorService.getLocaleByRequest(request);
+	JcrNodeWrapper node = new JcrNodeWrapper(currentNode, locale, true);
+
+	pageContext.setAttribute("markdown", new MarkdownWrapper(sling.getService(MarkdownService.class)));
+	pageContext.setAttribute("node", node);
+%>
 
 <html xmlns="http://www.w3.org/1999/xhtml" dir="ltr" lang="en-US" xml:lang="en">
 <head>
@@ -27,227 +37,259 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title><%= currentNode.getProperty("pageTitle").getValue().getString() %></title>
-    
-	<!-- Start Stylesheets -->
-	<link rel="stylesheet" href="css/styles.css" />
-    <link href="css/polyglot-language-switcher.css" type="text/css" rel="stylesheet">
-	<!-- End Stylesheets -->
+	<script type="text/javascript">
+	function post_language(lang_code) {
+		<%	
+		final LanguageSelectorService lang_service = sling.getService(LanguageSelectorService.class);
+		final String storekey_name = lang_service.getStoreKeyName(); 
+		%>
+		var myForm = document.createElement("form");
+  		myForm.method="post" ;
+  		myForm.action = "/session/language";
 
-	<!-- Start Javascript -->
-	<script type="text/javascript" src="js/jquery-1.7.min.js"></script>
-	<script type="text/javascript" src="js/jquery.countdown.js"></script>
-	<script type="text/javascript" src="js/custom.js"></script>
-	<script type="text/javascript" src="js/twitter.js"></script>
-	
-    <script src="js/persist-min.js" type="text/javascript"></script>
-    <script src="js/jquery.timer.js" type="text/javascript"></script>
-    <script src="js/jquery.polyglot.language.switcher.js" type="text/javascript"></script>
-    <script type="text/javascript">
-        $(document).ready(function() {
-            $('#polyglotLanguageSwitcher').polyglotLanguageSwitcher({
-            	websiteType: 'dynamic',
-            	effect: 'slide',
-				openMode: 'hover',
-                testMode: false,
-                animSpeed: 400,
-                callback: function(language_id){
-                	<%	
-            		final LanguageSelectorService lang_service = sling.getService(LanguageSelectorService.class);
-            		final String storekey_name = lang_service.getStoreKeyName(); 
-            		%>
-            		var myForm = document.createElement("form");
-              		myForm.method="post" ;
-              		myForm.action = "/session/language";
+  		var myInput = document.createElement("input") ;
+  		myInput.setAttribute("name", "<%= storekey_name %>");
+  		myInput.setAttribute("value", lang_code);
+  		myForm.appendChild(myInput) ;
 
-              		var myInput = document.createElement("input") ;
-              		myInput.setAttribute("name", "<%= storekey_name %>");
-              		myInput.setAttribute("value", language_id);
-              		myForm.appendChild(myInput) ;
+  		document.body.appendChild(myForm) ;
+  		myForm.submit() ;
+  		document.body.removeChild(myForm) ;
+	}
+	</script> 
+    <title>${node.properties['pageTitle']}</title>
 
-              		document.body.appendChild(myForm) ;
-              		myForm.submit() ;
-              		document.body.removeChild(myForm) ;
-              		return true;
-                }
-            });
-        });	
-    </script>
-    <script src="/system/sling.js"></script>
-	<!-- End Javascript -->
-	
-	<link rel="shortcut icon" href="images/misc/favicon.ico">
-	<link rel="icon" href="images/misc/favicon.ico">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+
+<!--	<link href="css/styles.css" rel="stylesheet"/>-->
+	<link href="css/defaultpage.css" rel="stylesheet"/>
+	<link rel="shortcut icon" href="img/misc/favicon.ico">
+	<link rel="icon" href="img/misc/favicon.ico">
 </head>
 
 <body>
 
-	<%
-	Locale curr_locale = null;
-	if (lang_service != null) {
-		RequestWrapper rw = new RequestWrapper(request, lang_service.getLocaleByRequest(request));
-		curr_locale = rw.getLocale();
-		if (curr_locale != null) {
-			request.setAttribute("curr_locale", curr_locale);
-		}	
-	}
-	%>
+<!--    <div id="resize">-->
+	<div class="container">
 
-    <div id="resize">
+		<div class="navbar">
+  			<div class="navbar-inner">
+    			<div class="container">
+ 
+      				<!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      				<a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</a>
+
+      				<!-- Be sure to leave the brand out there if you want it shown -->
+      				<a class="brand" href="#"><img src="img/misc/livesense_logo_v3_defaultportal.png"></img></a>
+ 
+      				<!-- Everything you want hidden at 940px or less, place within here -->
+      				<div class="nav-collapse collapse">
     
-		<header class="clearfix">
-		
-			<a href="http://www.livesense.in" class="logo hidden">liveSense Home Page</a>
 			
-			<ul class="navigation">
-                <%
-                Node node = currentNode;
-                NodeIterator siblings = node.getSession().getWorkspace().getQueryManager().
-                createQuery("SELECT [menuName_hu] FROM [defaultportal:defaultpage]  WHERE [portalName] = 'defaultportal' ORDER BY [menuOrder]", Query.JCR_SQL2).execute().getNodes();
-                while (siblings.hasNext()) {
-                	node = siblings.nextNode();
-                	if (currentNode.getName().equalsIgnoreCase(node.getName())) {
-                %>
-              	<li class="subnav current"><%} else {%><li class="subnav"><%}%>
-              	<a href="<%= node.getName()+".html" %>"><%= node.getProperty("menuName_" + curr_locale.getLanguage()).getValue().getString() %></a></li>
-                <%
-                }
-    			%>
-			</ul><!-- End Navigation -->
-			
-			
-    		<div id="polyglotLanguageSwitcher">
-				<form action="#">
-					<select id="polyglot-language-options">
-						<option id="en" value="en_US"<%if (curr_locale.getLanguage().toString().equals("en")) out.print(" selected");%>></option>
-						<option id="fr" value="fr_FR"<%if (curr_locale.getLanguage().toString().equals("fr")) out.print(" selected");%>></option>
-						<option id="de" value="de_DE"<%if (curr_locale.getLanguage().toString().equals("de")) out.print(" selected");%>></option>
-						<option id="es" value="es_ES"<%if (curr_locale.getLanguage().toString().equals("es")) out.print(" selected");%>></option>
-						<option id="hu" value="hu_HU"<%if (curr_locale.getLanguage().toString().equals("hu")) out.print(" selected");%>></option>
-					</select>
-				</form>
-			</div>
-			
-			
-		</header><!-- End Header -->
-
-		
-		<div id="main_wrapper" class="clearfix">
-
-		
-		
-			<div class="headline">
-		
-			<h1><%=currentNode.getProperty("title_" + curr_locale.getLanguage()).getValue().getString() %></h1>
-			<p><%=currentNode.getProperty("content_" + curr_locale.getLanguage()).getValue().getString() %></p>	
-			</div>
-
-            <%
-            Node sample_node = currentNode;
-            String orig_text = null;
-			long display_counter = 1;
-			long columns = 3;
-			
-            String sql = "SELECT [title_hu] FROM [defaultportal:article]  WHERE [parentMenu] = '" + currentNode.getName() + "' ORDER BY [displayOrder]";
-			
-            NodeIterator sample_siblings = sample_node.getSession().getWorkspace().getQueryManager().createQuery(sql, Query.JCR_SQL2).execute().getNodes();
-            if (sample_siblings.getSize() == 0) {
-				out.print("<br/>");
-			} else {
-            	while (sample_siblings.hasNext()) {
-            		sample_node = sample_siblings.nextNode();
-
-					if (display_counter == 1) {
-						out.print("<div class='clearfix'>");   
-					}
-			%>
-					<div class="one-third">
-		        		<h3><%=sample_node.getProperty("title_" + curr_locale.getLanguage()).getValue().getString() %></h3>
-						<p><%=sample_node.getProperty("content_" + curr_locale.getLanguage()).getValue().getString() %></p>
-					</div>
- 			<%
-					if ((display_counter == columns) || (!sample_siblings.hasNext())) {
-						out.print("</div>");   
-					}
-					if (display_counter == columns) {
-						out.print("<br/><br/>");   
-					}
-					display_counter = display_counter + 1;
-					if (display_counter > columns) {
-						display_counter = 1;
-					}
-            	}
-     		}
-			%>
-
-
-
-
-
-
-
-
-<!--		
-			<div id="countdown" class="clearfix"></div>	
-			
-			<form  class="emailform" method="post" action="subscribe.php">
-			
-				<input class="emailsubscribe left" type="text" name="mail" placeholder="What’s your email? We’ll tell you when we launch." onFocus="if(!this._haschanged){this.value=''};this._haschanged=true;" />
-				<input type="hidden" name="do" value="mail" />
-				<input class="emailsubmit hidden" type="submit" name="submit" value="Submit" />
+						<ul class="nav pull-right">
+							<c:set var="query_level1" value="SELECT * FROM [defaultportal:defaultpage] WHERE [portalName] = 'defaultportal' AND [menuLevel] = '1' ORDER BY [menuOrder]"/>
+							<c:forEach var="n" items="${node.SQL2Query[query_level1]}">
+								<c:set var="link_level1" value = "#" />
+								<c:if test="${n.properties['islink'].boolean}">
+									<c:set var="link_level1" value = "${n.name}.html" />
+								</c:if>
 					
-			</form>
--->
-		
-		</div><!-- End main_wrapper -->
+								<c:if test="${n.properties['jstorun'] != ''}">
+									<c:set var="link_level1" value = "javascript: ${n.properties['jstorun']}" />
+								</c:if>
+
+								<c:set var="current_li_class_1" value = "${((n.name == node.name) || (node.properties['menuLevel2Parent'] == n.name)) ? 'current' : ''}" />
+
+								<!-- Selecting menu level 2 -->
+								<c:set var="query_level2" value="SELECT * FROM [defaultportal:defaultpage] WHERE [portalName] = 'defaultportal' AND [menuLevel2Parent] ='${n.name}' AND [menuLevel] = '2' ORDER BY [menuOrder]"/>
+								<c:set var="items_level2" value = "${node.SQL2Query[query_level2]}" />
+
+								<c:choose>
+									<c:when test="${items_level2.size != 0}">
+
+          								<li class="dropdown">
+            								<a class="dropdown-toggle" data-toggle="dropdown" href="#">${n.properties['menuName']} <b class="caret"></b></a>
+            								<ul class="dropdown-menu" id="swatch-menu">
+
+												<c:forEach var="j" items="${items_level2}">
+													<c:set var="link_level2" value = "#" />
+													<c:if test="${j.properties['islink'].boolean}">
+														<c:set var="link_level2" value = "${j.properties['menuLink']}" />
+													</c:if>
+
+													<c:if test="${j.properties['jstorun'] != ''}">
+														<c:set var="link_level2" value = "javascript: ${j.properties['jstorun']}" />
+													</c:if>
+									
+													<c:choose>
+														<c:when test="${j.properties['isdivider'].boolean}">
+															<li class="divider"></li>
+														</c:when>
+														<c:otherwise>
+															<li><a href="${link_level2}">${j.properties['menuName']}</a></li>									
+														</c:otherwise>
+													</c:choose>
+												</c:forEach>
+											</ul>
+          								</li>
+
+									</c:when>
+									<c:otherwise>
+								
+										<c:choose>
+											<c:when test="${n.properties['isdivider'].boolean}">
+												<li class="divider"></li>
+											</c:when>
+											<c:otherwise>
+												<li class="subnav ${current_li_class_1}">
+													<a href="${link_level1}">${n.properties['menuName']}</a>
+												</li>
+											</c:otherwise>
+										</c:choose>
+									
+									</c:otherwise>
+								</c:choose>
 
 
 
-		
-		<footer class="clearfix">
 
 
 
-            <%
-            Node footer_node = currentNode;
-			long f_display_counter = 1;
-			long f_columns = 3;
-			
-            String f_sql = "SELECT [title_hu] FROM [defaultportal:footer]  WHERE [portalName] = 'defaultportal' ORDER BY [displayOrder]";
-			
-            NodeIterator footer_siblings = sample_node.getSession().getWorkspace().getQueryManager().createQuery(f_sql, Query.JCR_SQL2).execute().getNodes();
-            if (footer_siblings.getSize() == 0) {
-				out.print("<br/>");
-			} else {
-            	while (footer_siblings.hasNext()) {
-            		footer_node = footer_siblings.nextNode();
-
-					if (f_display_counter == 1) {
-						out.print("<div class='clearfix'>");   
-					}
-			%>
-					<div class="one-third">
-		        		<h3><%=footer_node.getProperty("title_" + curr_locale.getLanguage()).getValue().getString() %></h3>
-						<p><%=footer_node.getProperty("content_" + curr_locale.getLanguage()).getValue().getString() %></p>
+							</c:forEach>
+						</ul><!-- End Navigation -->
+						
 					</div>
- 			<%
-					if ((f_display_counter == f_columns) || (!footer_siblings.hasNext())) {
-						out.print("<div class='one-third:last-child poweredby'><a href='http://www.livesense.in'><div class='poweredby_logo'></div></a>");
-						out.print("</div>");   
-					}
-					f_display_counter = f_display_counter + 1;
-					if (f_display_counter > f_columns) {
-						f_display_counter = 1;
-					}
-            	}
-     		}
-			%>
+				</div>
+			</div>
+		</div>
 
+
+
+
+		
+<!--		<div id="main_wrapper" class="clearfix"> -->
+		<section>
+
+<!--			<div class="headline">-->
+  			<div class="page-header">
+ 
+				<h1>${node.properties['title']}</h1>
+				<p>${node.properties['content']}</p>	
+			</div>
+
+			<c:set var="display_counter" value = "1"/>
+			<c:set var="row_counter" value = "1"/>
+			<c:set var="columns" value = "3"/>
+			
+			<c:set var="query_article" value="SELECT * FROM [defaultportal:article] WHERE [parentMenu] = '${node.name}' ORDER BY [displayOrder]"/>
+			<c:set var="items_article" value = "${node.SQL2Query[query_article]}" />
+
+			<c:set var="row_num" value = "${items_article.size div 3}"/>
+			<fmt:formatNumber var="row_num" value = "${row_num+(1-(row_num%1))%1}" maxFractionDigits="0"/>
+
+  			<c:choose>
+				<c:when test="${items_article.size == 0}">
+					<br/>
+				</c:when>
+				<c:otherwise>
+  					<c:forEach var="n" items="${items_article}" varStatus="loop">
+
+						<c:if test="${display_counter == 1}">
+							<c:choose>
+								<c:when test="${row_counter == row_num}">
+<!--									<div class='clearfix'>-->
+									<div class="row-fluid">
+								</c:when>
+								<c:otherwise>
+<!--									<div class='clearfix endrow'>-->
+									<div class="row-fluid endrow">
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+
+<!--						<div class="one-third">-->
+						<div class="span4">
+		        			<h3>${n.properties['title']}</h3>
+							<p>${n.properties['content']}</p>
+						</div>
+
+						<c:if test="${(display_counter == columns) || (loop.last)}">
+							</div>
+							<c:set var="row_counter" value = "${row_counter+1}"/>
+						</c:if>
+
+						<c:if test="${display_counter == columns}">
+							<br/><br/>
+						</c:if>
+						<c:set var="display_counter" value = "${display_counter+1}"/>
+
+						<c:if test="${display_counter > columns}">
+							<c:set var="display_counter" value = "1"/>
+						</c:if>
+					</c:forEach>
+  		
+  				</c:otherwise>
+  			</c:choose>
+
+<!--		</div><!-- End main_wrapper -->
+		</section>
+
+		
+		<footer id="footer">
+
+			<c:set var="display_counter" value = "1"/>
+			<c:set var="columns" value = "3"/>
+			<c:set var="query_footer" value="SELECT * FROM [defaultportal:footer] WHERE [portalName] = 'defaultportal' ORDER BY [displayOrder]"/>
+			<c:set var="items_footer" value = "${node.SQL2Query[query_footer]}" />
+  			<c:choose>
+				<c:when test="${items_footer.size == 0}">
+					<br/>
+				</c:when>
+				<c:otherwise>
+  					<c:forEach var="n" items="${items_footer}" varStatus="loop">
+
+						<c:if test="${display_counter == 1}">
+							<div class="row-fluid">
+						</c:if>
+
+						<div class="span4">
+		        			<h3>${n.properties['title']}</h3>
+							<p>${n.properties['content']}</p>
+						</div>
+
+						<c:if test="${(display_counter == columns) || (loop.last)}">
+							<div class="span4"><a href="http://www.livesense.in"><img class="pull-right" src="img/misc/livesense_logo_v3_poweredby_2.png"></img></a>
+							</div>
+						</c:if>
+
+						<c:set var="display_counter" value = "${display_counter+1}"/>
+
+						<c:if test="${display_counter > columns}">
+							<c:set var="display_counter" value = "1"/>
+						</c:if>
+					</c:forEach>
+  		
+  				</c:otherwise>
+  			</c:choose>
 
 		</footer>
 			 
-	</div><!-- End Resize -->
+	</div><!-- End Resize/Container -->
 
+    <script src="js/jquery-1.9.1.min.js"></script>
+    <script src="js/jquery.smooth-scroll.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    
+	<script type="text/javascript" src="js/jquery.countdown.js"></script>
+<!--	<script type="text/javascript" src="js/custom.js"></script>
+	<script type="text/javascript" src="js/twitter.js"></script>-->
+    <script type="text/javascript" src="js/persist-min.js"></script>
+    <script type="text/javascript" src="js/jquery.timer.js"></script>
 </body>
   
 </html>

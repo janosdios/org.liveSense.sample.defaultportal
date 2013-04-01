@@ -1,26 +1,33 @@
 {
     "portalName": "defaultportal",
-    "menuOrder": "3",
+    "menuOrder": "4",
 
-    "menuName_hu": "Tools",
+    "menuName_hu": "Eszközök",
     "menuName_en": "Tools",
     "menuName_de": "Tools",
     "menuName_fr": "Tools",
     "menuName_es": "Tools",
-    
+
+	"menuLevel": "1",
+	"menuLevel2Parent": "",
+	"menuLink": "tools.html",
+	"jstorun": "",
+	"islink": true,
+	"enabled": true,
+	"isdivider": false,
     "pageTitle": "liveSense",
 
-    "title_hu": "Built-in tools",
+    "title_hu": "Beépített eszközök",
     "title_en": "Built-in tools",
-    "title_de": "Built-in tools",
-    "title_fr": "Built-in tools",
-    "title_es": "Built-in tools",
+    "title_de": "N/A",
+    "title_fr": "N/A",
+    "title_es": "N/A",
 
-    "content_hu": "Under construction",
+    "content_hu": "A liveSense több hatékony alkalmazást tartalmaz arra, hogy menedzseljük az OSGi-keretrendszert és a JCR-tárolót csupán a kedvenc internetes böngészőnk használatával.<br/><br/><b>Megjegyzés</b>: a konzolba történő bejelentkezéshez vagy a tárolóba történő módosításhoz használja az <b>admin/admin</b> alapértelmezett felhasználó/jelszó párost.",
     "content_en": "liveSense contains more efficient built-in administrative applications to inspect and manage OSGi framework instances and the JCR repository using your favorite Web Browser.<br/><br/><b>Remark</b>: to log in to the console or to write into the repository use <b>admin/admin</b> as the default user/password.",
-    "content_de": "Under construction",
-    "content_fr": "Under construction",
-    "content_es": "Under construction",
+    "content_de": "Under construction!",
+    "content_fr": "Under construction!",
+    "content_es": "Under construction!",
 
     "jcr:primaryType": "defaultportal:defaultpage"
 }

@@ -7,17 +7,24 @@
     "menuName_de": "Home",
     "menuName_fr": "Home",
     "menuName_es": "Home",
-    
+
+	"menuLevel": "1",
+	"menuLevel2Parent": "",
+	"menuLink": "index.html",
+	"jstorun": "",
+	"islink": true,
+	"enabled": true,
+	"isdivider": false,
     "pageTitle": "liveSense",
 
-    "title_hu": "Welcome to the liveSense!",
+    "title_hu": "Üdvözöljük a liveSense-ben!",
     "title_en": "Welcome to the liveSense!",
     "title_de": "Welcome to the liveSense!",
     "title_fr": "Welcome to the liveSense!",
     "title_es": "Welcome to the liveSense!",
 
-    "content_hu": "Under construction",
-    "content_en": "Congratulations! You have setup liveSense successfully. This is the default liveSense page, contains general information about this web application framework and links with short descriptions to the administrating tools and to the built-in samples.<br/><br/>If you are a <b>user</b> and you are seeing this, maybe this is a new installation, or this page is under construction or being updated. Please come back later!<br/><br/><b>Thanks for using liveSense!</b>",
+    "content_hu": "Gratulálunk! Sikeresen telepítette a liveSense-t. Ez a liveSense alapértelmezett főoldala, amely általános imformációkat tartalmaz erről az internetes alkalmazás-keretrendszerről, valamint hivatkozásokat rövid leírással az adminisztrációs eszközökhöz valamint a példaprogramokhoz.<br/><br/>Ha Ön <b>felhasználó</b>, és ezt az oldalt látja, akkor valószínűleg ez egy friss liveSense telepítés, vagy az oldal fejlesztés vagy módosítás alatt áll éppen. Kérjük látogasson vissza később!<br/><br/><b>Köszönjük, hogy liveSense-t használ!</b>",
+    "content_en": "Congratulations! You have setup liveSense successfully. This is the default liveSense page, contains general information about this web application framework and links with short descriptions to the administrating tools and to the built-in samples.<br/><br/>If you are a <b>user</b> and you are seeing this, maybe this is a new liveSense installation, or this page is under construction or being updated. Please come back later!<br/><br/><b>Thanks for using liveSense!</b>",
     "content_de": "Under construction",
     "content_fr": "Under construction",
     "content_es": "Under construction",

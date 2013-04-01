@@ -1,0 +1,290 @@
+/*-----------------------------------------------------------------------------------*/
+/*	CSS starter framework
+/*-----------------------------------------------------------------------------------*/
+
+* { margin: 0; padding: 0; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+
+img { border: none; -ms-interpolation-mode: bicubic; image-rendering: optimizeQuality; }
+
+table { border-collapse: separate; border-spacing: 0; }
+caption, th, td { text-align: left; font-weight: normal; }
+
+input[type=search] { -webkit-appearance: none; }
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, navbar, section { display: block; }
+navbar ul { list-style: none; }
+
+.hidden { font-size: 0/0 a; color: transparent; text-decoration: none; }
+
+.radius { -moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px; -khtml-border-radius: 5px; -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box; }
+
+.left { float: left; }
+.right { float: right; }
+
+/*-----------------------------------------------------------------------------------*/
+/*	Document Setup 
+/*-----------------------------------------------------------------------------------*/
+
+
+body {
+	background: #fbfbfb;
+}
+
+/*resize*/
+.container {
+	padding: 0 30px;
+	margin: 0 auto;
+}
+
+.navbar {
+	width: 100%;
+	max-width: 940px;
+	margin: 0 auto;
+	padding: 42px 0;
+	border-bottom: 1px dashed #c2c2c2;
+}
+
+section {
+	width: 100%;
+	max-width: 940px;
+	margin: 0 auto;
+	padding: 60px 0 0;
+	border-bottom: 1px dashed #c2c2c2;
+}
+
+footer {
+	width: 100%;
+	max-width: 940px;
+	margin: 40px auto 0 auto;
+}
+
+/*headline*/
+.page-header {
+	border-bottom: 1px dashed #c2c2c2;
+	margin: 0 0 60px 0;
+	padding: 0 0 0 0;
+}
+
+.navbar-inner {
+	padding: 0;
+	border: 0;
+	background: none;
+	
+  	background-image: none;
+  	-webkit-border-radius: 0px;
+       -moz-border-radius: 0px;
+          	border-radius: 0px;
+  	-webkit-box-shadow: none;
+   	   -moz-box-shadow: none;
+            box-shadow: none;	
+}
+
+.navbar-inner .container {
+	padding: 0;
+}
+
+.navbar .brand {
+	padding: 0;
+	margin: 0;
+}
+
+.navbar .nav {
+	float: right;
+	display: block;
+	margin-top: 36px;
+	height: auto;
+}
+
+.navbar .nav > li {
+	margin-right: 40px;
+	position: relative;
+	display: inline-block;
+	height: auto;
+	
+	-moz-transition: 1s;
+	-webkit-transition: 1s;
+	-o-transition: 1s;
+}
+
+.navbar .nav > li > a {
+	padding: 0;
+	line-height: 14px;
+	height: auto;
+} 
+
+.navbar .nav > li:last-child {
+	margin-right: 0;
+}
+
+.navbar .nav > li > a:link, .navbar .nav > li > a:visited {
+	font-family: 'Droid-Sans', sans-serif;
+	color: #555555;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.navbar .nav > li > a:hover {
+	color: #95BDDF;
+}
+
+.navbar .nav > li.current > a:link, .navbar .nav > li.current > a:visited {
+	color: #1D90C5;
+}
+
+.navbar .nav > li.current > a:hover {
+	color: #95BDDF;
+}
+
+.endrow {
+	border-bottom: 1px dashed #e8e8e8;
+}
+
+/* Dropdown menu customization */
+
+.navbar .nav > li.dropdown .caret {
+  margin-top: 6px;
+  margin-left: 2px;
+}
+
+.navbar .nav li.dropdown > a:hover .caret,
+.navbar .nav li.dropdown > a:focus .caret {
+  border-top-color: #95BDDF;
+  border-bottom-color: #95BDDF;
+}
+
+.navbar .nav li.dropdown.open > .dropdown-toggle {
+  background-color: #fbfbfb;
+}
+
+/* When menu opened sets the link color */
+.navbar .nav li.dropdown.open > a:link {
+  color: #95BDDF;
+}
+
+/* When menu opened sets the caret color */
+.navbar .nav li.dropdown.open > a:link .caret {
+  border-top-color: #95BDDF;
+  border-bottom-color: #95BDDF;
+}
+
+.dropdown-menu {
+  background-color: #fbfbfb;
+}
+
+.dropdown-menu > li > a:link, .dropdown-menu > li > a:visited {
+	font-family: 'Droid-Sans', sans-serif;
+	color: #555555;
+	font-size: 14px;
+	text-decoration: none;
+}
+
+.dropdown-menu > li > a:hover {
+	color: #95BDDF;
+	background-color: #fbfbfb;
+	background-image: none;	
+}
+
+.dropdown-menu > li.current > a:link, .dropdown-menu > li.current > a:visited {
+	color: #1D90C5;
+}
+
+.dropdown-menu > li.current > a:hover {
+	color: #95BDDF;
+}
+
+/*-----------------------------------------------------------------------------------*/
+/*	Typography
+/*-----------------------------------------------------------------------------------*/
+
+@font-face {
+	font-family: 'Droid-Sans';
+ 	font-style: normal;
+  	font-weight: 400;
+	src: url(../font/DroidSans.ttf) format('truetype');
+}
+@font-face {
+	font-family: 'Droid-Sans';
+ 	font-style: normal;
+  	font-weight: 700;
+	src: url(../font/DroidSans-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid-Serif';
+  font-style: normal;
+  font-weight: 400;
+  src: url(../font/DroidSerif.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid-Serif';
+  font-style: italic;
+  font-weight: 400;
+  src: url(../font/DroidSerif-Italic.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid-Serif';
+  font-style: normal;
+  font-weight: 700;
+  src: url(../font/DroidSerif-Bold.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid-Serif';
+  font-style: italic;
+  font-weight: 700;
+  src: url(../font/DroidSerif-BoldItalic.ttf) format('truetype');
+}
+h1 {
+	font-family: 'Droid-Serif', serif;
+	font-size: 20px;
+	font-weight: 400;
+	color: #555555;
+	text-align: left;
+	margin: 0 0 30px 0;
+	line-height: 20px
+}
+h2 {
+	font-family: 'Droid-Sans', sans-serif;
+	font-size: 20px;
+	font-weight: 400;
+	color: #555555;
+	margin-bottom: 20px;
+	border-top: 1px dashed #c2c2c2;
+}
+
+h3 {
+	font-family: 'Droid-Sans', sans-serif;
+	font-size: 10px;
+	font-weight: 400;
+	color: #555555;
+	text-transform: uppercase;
+	margin: 0 0 20px 0;
+	line-height: 10px
+}
+
+p {
+	font-family: 'Droid-Sans', sans-serif;
+	font-size: 12px;
+	font-weight: 400;
+	margin-bottom: 20px;
+	line-height: 18px;
+	color: #555555;
+	text-align:justify;
+}
+p a:link, a:visited {
+/*	color: #5f94d0;*/
+	color: #1D90C5;
+	text-decoration: none;
+}
+
+p a:hover {
+/*	color: #555555;*/
+	color: #95BDDF;
+	text-decoration: none;
+}
+
+
+.span4 {
+	margin-top: 3px; /* positioning the powered by text */
+}
+
+
+
