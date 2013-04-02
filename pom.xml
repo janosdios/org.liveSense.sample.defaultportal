@@ -77,9 +77,6 @@
 		<profile>
 			<id>development</id>
 
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 
 			<properties>
 				<!-- Initial bundle configurations (for example FsResource) -->
@@ -132,6 +129,10 @@
 
 		<profile>
 			<id>release</id>
+
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
 
 			<properties>
 				<!-- Iniial bundle configurations (for example FsResource) -->

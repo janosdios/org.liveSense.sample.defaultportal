@@ -35,7 +35,7 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 	<script type="text/javascript">
 	function post_language(lang_code) {
@@ -59,13 +59,13 @@
 	</script> 
     <title>${node.properties['pageTitle']}</title>
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-responsive.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="css/bootstrap-responsive.min.css" rel="stylesheet" />
 
 <!--	<link href="css/styles.css" rel="stylesheet"/>-->
-	<link href="css/defaultpage.css" rel="stylesheet"/>
-	<link rel="shortcut icon" href="img/misc/favicon.ico">
-	<link rel="icon" href="img/misc/favicon.ico">
+	<link href="css/defaultpage.css" rel="stylesheet" />
+	<link rel="shortcut icon" href="img/misc/favicon.ico" />
+	<link rel="icon" href="img/misc/favicon.ico" />
 </head>
 
 <body>
@@ -85,7 +85,7 @@
       				</a>
 
       				<!-- Be sure to leave the brand out there if you want it shown -->
-      				<a class="brand" href="#"><img src="img/misc/livesense_logo_v3_defaultportal.png"></img></a>
+      				<a class="brand" href="#"><img src="img/misc/livesense_logo_v3_defaultportal.png" alt="logo"/></a>
  
       				<!-- Everything you want hidden at 940px or less, place within here -->
       				<div class="nav-collapse collapse">
@@ -215,7 +215,7 @@
 <!--						<div class="one-third">-->
 						<div class="span4">
 		        			<h3>${n.properties['title']}</h3>
-							<p>${n.properties['content']}</p>
+							${n.properties['content']}
 						</div>
 
 						<c:if test="${(display_counter == columns) || (loop.last)}">
@@ -236,7 +236,7 @@
   				</c:otherwise>
   			</c:choose>
 
-<!--		</div><!-- End main_wrapper -->
+<!--		</div> End main_wrapper -->
 		</section>
 
 		
@@ -263,7 +263,7 @@
 						</div>
 
 						<c:if test="${(display_counter == columns) || (loop.last)}">
-							<div class="span4"><a href="http://www.livesense.in"><img class="pull-right" src="img/misc/livesense_logo_v3_poweredby_2.png"></img></a>
+							<div class="span4"><a href="http://www.livesense.in"><img class="pull-right" src="img/misc/livesense_logo_v3_poweredby_2.png" alt="poweredby"/></a>
 							</div>
 						</c:if>
 
@@ -281,9 +281,9 @@
 			 
 	</div><!-- End Resize/Container -->
 
-    <script src="js/jquery-1.9.1.min.js"></script>
-    <script src="js/jquery.smooth-scroll.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/jquery.smooth-scroll.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
     
 	<script type="text/javascript" src="js/jquery.countdown.js"></script>
 <!--	<script type="text/javascript" src="js/custom.js"></script>
