@@ -77,7 +77,6 @@
 		<profile>
 			<id>development</id>
 
-
 			<properties>
 				<!-- Initial bundle configurations (for example FsResource) -->
 				<Felix-Initial-Configuration>

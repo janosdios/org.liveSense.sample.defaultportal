@@ -1,0 +1,42 @@
+@import "custom-variables.less";
+
+//Custom css
+
+* { 
+	-webkit-font-smoothing: antialiased; 
+	text-rendering: optimizeLegibility;
+}
+
+img { 
+	border: none; 
+	-ms-interpolation-mode: bicubic; 
+	image-rendering: optimizeQuality; 
+}
+
+//
+// Content
+// -------------------------
+
+#main_content {
+	padding-top: 60px;
+}
+
+.endrow {
+	border-bottom: 1px dashed #e8e8e8;
+}
+
+
+//
+// Footer
+// -------------------------
+
+html {
+	background-color: @defaultpage-footer-bg;
+}
+
+footer {
+	background-color: @defaultpage-footer-bg;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	border-top: 1px solid darken(@defaultpage-footer-bg, 4%);
+}
