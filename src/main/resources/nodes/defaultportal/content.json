@@ -356,6 +356,7 @@
     
     "footer_01": {
     	"portalName": "defaultportal",
+    	"parentMenu": "index",
     	"displayOrder": "1",
 
     	"title_hu": "Források",
@@ -375,6 +376,7 @@
     
     "footer_02": {
     	"portalName": "defaultportal",
+    	"parentMenu": "index",
     	"displayOrder": "2",
 
     	"title_hu": "Jogi nyilatkozat és Kapcsolat",

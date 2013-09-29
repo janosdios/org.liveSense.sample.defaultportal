@@ -77,6 +77,10 @@
 		<profile>
 			<id>development</id>
 
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+
 			<properties>
 				<!-- Initial bundle configurations (for example FsResource) -->
 				<Felix-Initial-Configuration>
@@ -128,10 +132,6 @@
 
 		<profile>
 			<id>release</id>
-
-			<activation>
-				<activeByDefault>true</activeByDefault>
-			</activation>
 
 			<properties>
 				<!-- Iniial bundle configurations (for example FsResource) -->
