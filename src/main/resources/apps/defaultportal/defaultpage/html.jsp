@@ -45,7 +45,7 @@
 
     <title>${node.properties['pageTitle']}</title>
 
-	<link href="/defaultportal/css/custom-bootstrap.css" rel="stylesheet" />
+	<link href="/defaultportal/css/defaultportal-custom-bootstrap.css" rel="stylesheet" />
 	<link rel="shortcut icon" href="/defaultportal/img/favicon.ico" />
 	<link rel="icon" href="/defaultportal/img/favicon.ico" />
 </head>
